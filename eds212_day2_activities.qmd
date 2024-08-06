@@ -1,0 +1,15 @@
+---
+title: "eodactivities"
+author: "BJ"
+format: html
+editor: visual
+---
+
+```{r}
+#load packages ----
+library(tidyverse)
+library(palmerpenguins)
+
+
+```
+
