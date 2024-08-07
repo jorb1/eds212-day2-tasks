@@ -3,13 +3,67 @@ title: "eodactivities"
 author: "BJ"
 format: html
 editor: visual
+editor_options: 
+  chunk_output_type: console
 ---
+
 
 ```{r}
 #load packages ----
 library(tidyverse)
 library(palmerpenguins)
 
+#define function ----
+eq1 <- function(x) {
+  f = x^2
+}
+
+derivative <-D(expression(x^2), name="x")
+x <-9
+eval(derivative)
+
+eq1(3)
+
+eq2 <- function(a) {
+  P = 2 * (3 * a + 2)^4 - 5
+}
+
+derivative2 <-D(expression(2 * (3 * a + 2)^4 - 5), name = "a")
+a <- 1.2
+eval(derivative2)
 
 ```
+
+```{r}
+data(package = 'palmerpenguins')
+penguins <- penguins
+
+# create plot ----
+ggplot (data = penguins, aes(x = body_mass_g, y = flipper_length_mm)) +
+  geom_point (aes(color = species)) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  labs (x = "Body mass (g)",
+        y = "Flipper length (mm)",
+        title = "Palmer penguin size measurements",
+        subtitle = "Palmer Archipelago, Antarctica (2007 - 2009)",
+        caption = "Collected by Dr. Kristen Gorman and colleagues at Palmer Station LTER") +
+  facet_wrap(~island) +
+  theme_minimal()
+```
+
+```{r}
+ggplot (data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_jitter (aes(color = species))+
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  labs (x = "Bill Length (mm)",
+        Y = "Bill Depth (mm)",
+        title = "Palmer Penguin Bill Measurements",
+        subtitle = "Palmer Archipelago, Antarctica (2007 -2009)",
+        caption = "Collected by Dr. Kristen Gorman and colleagues at Palmer Station LTER") +
+      facet_wrap (~sex) +
+      theme_minimal ()
+        
+```
+
+
 
